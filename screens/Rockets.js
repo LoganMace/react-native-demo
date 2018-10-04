@@ -1,7 +1,5 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, ScrollView, TouchableOpacity, Modal, TouchableHighlight } from 'react-native';
-
-// import Mission from './Mission';
+import { Text, View, Image, StyleSheet, ScrollView } from 'react-native';
 
 export default class Rockets extends React.Component {
 
@@ -24,8 +22,7 @@ export default class Rockets extends React.Component {
   }
 
   render() {
-    console.log(this.state)
-    // const {selected} = this.state;
+    console.log(this.state);
     const rockets = this.state.rockets.map(rocket => {
       const images = rocket.flickr_images.map((image, i) => {
         return (
@@ -33,16 +30,16 @@ export default class Rockets extends React.Component {
         )
       })
       return (
-        <View style={{alignItems: 'center', backgroundColor: '#fff'}} key={rocket.rocketid}>
+        <View style={{alignItems: 'center', backgroundColor: 'black'}} key={rocket.rocketid}>
           <Text style={styles.bold}>{rocket.name}</Text>
           {images}
-          <Text style={{margin: 25, marginTop: 0}}>{rocket.description}</Text>
+          <Text style={{margin: 25, marginTop: 0, color: 'white'}}>{rocket.description}</Text>
         </View>
       )
     })
 
     return (
-      <View style={{backgroundColor: '#fff', flex: 1}}>
+      <View style={{backgroundColor: 'black', flex: 1}}>
         <Text style={styles.bold}>Rockets: </Text>
         <ScrollView>
           {rockets}
@@ -55,6 +52,7 @@ export default class Rockets extends React.Component {
 const styles = StyleSheet.create({
   bold: {
     fontSize: 20, 
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: "white"
   },
 });
