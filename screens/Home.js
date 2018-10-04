@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, View, Button, ScrollView, TouchableHighlight, Text } from 'react-native';
 
 import Launches from '../components/Launches';
 
@@ -7,13 +7,12 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button 
-          title="Go to test screen!"
+        <TouchableHighlight
           onPress={() => this.props.navigation.push('Rockets')}
-        />
-        <ScrollView>
-          <Launches/>
-        </ScrollView>
+        >
+          <Text style={{color: 'blue', fontWeight: 'bold', fontSize: 20, marginTop: 30}}>Rockets</Text>
+        </TouchableHighlight>
+        <Launches/>
       </View>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity, Modal, TouchableHighlight } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableOpacity, Modal, TouchableHighlight, ScrollView } from 'react-native';
 
 import Mission from './Mission';
 
@@ -50,7 +50,7 @@ export default class Launches extends React.Component {
                   onPress={() => {
                     this.setState({modalVisible: !this.state.modalVisible});
                   }}>
-                  <Text>Hide Modal</Text>
+                  <Text>Go Back</Text>
                 </TouchableHighlight>
 
                 <View style={{alignItems: "center"}}>
@@ -77,7 +77,9 @@ export default class Launches extends React.Component {
     return (
       <View>
         <Text style={{fontSize: 20, fontWeight: "bold"}}>Missions: </Text>
-        {launches}
+        <ScrollView>
+          {launches}
+        </ScrollView>
       </View>
     );
   }

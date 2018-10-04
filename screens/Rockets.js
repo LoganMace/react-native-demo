@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity, Modal, TouchableHighlight } from 'react-native';
+import { Text, View, Image, StyleSheet, ScrollView, TouchableOpacity, Modal, TouchableHighlight } from 'react-native';
 
 // import Mission from './Mission';
 
@@ -27,18 +27,26 @@ export default class Rockets extends React.Component {
     console.log(this.state)
     // const {selected} = this.state;
     const rockets = this.state.rockets.map(rocket => {
+      const images = rocket.flickr_images.map((image, i) => {
+        return (
+          <Image key={i} source={{uri: image}} style={{width: 350, height: 350, margin: 5}}/>
+        )
+      })
       return (
-        <View style={{alignItems: 'center'}} key={rocket.rocketid}>
+        <View style={{alignItems: 'center', backgroundColor: '#fff'}} key={rocket.rocketid}>
           <Text style={styles.bold}>{rocket.name}</Text>
+          {images}
           <Text style={{margin: 25, marginTop: 0}}>{rocket.description}</Text>
         </View>
       )
     })
 
     return (
-      <View>
+      <View style={{backgroundColor: '#fff', flex: 1}}>
         <Text style={styles.bold}>Rockets: </Text>
-        {rockets}
+        <ScrollView>
+          {rockets}
+        </ScrollView>
       </View>
     );
   }

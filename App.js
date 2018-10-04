@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+// import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import Home from './screens/Home';
@@ -25,6 +25,6 @@ export default class App extends React.Component {
 // });
 
 const AppNav = createStackNavigator({
-  Home: Home,
-  Rockets: Rockets,
+  Home,
+  Rockets
 })
